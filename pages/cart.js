@@ -1,12 +1,10 @@
 import { css } from '@emotion/react';
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
+import StripeCheckoutButton from '../components/StripeCheckoutButton';
 import { setParsedCookie } from '../util/cookies';
-import CheckoutForm from './Checkout';
 
 const cartContainer = css`
   max-width: 1150px;
@@ -17,11 +15,13 @@ const cartContainer = css`
   align-content: center;
   height: 100%;
   flex-direction: column;
-  margin-top: 100px;
+  margin: 0 auto;
 
   h1 {
-    margin-bottom: 125px;
+    margin-top: 125px;
+    margin-bottom: 100px;
     text-align: center;
+    font-size: 36px;
   }
 
   h3 {
@@ -55,6 +55,10 @@ const returnWrapper = css`
   text-align: center;
   margin: 10px;
   gap: 40px;
+
+  .deleteButton {
+    margin: 10px;
+  }
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -116,7 +120,12 @@ export default function Cart(props) {
                 <p>Bouquets: {product.itemCount}</p>
                 <Navbar cartItemsBadge={totalItems} />
 
-                <button onClick={() => deleteItem(product.id)}>x</button>
+                <button
+                  className="deleteButton"
+                  onClick={() => deleteItem(product.id)}
+                >
+                  x
+                </button>
               </div>
             </div>
           );
@@ -126,7 +135,7 @@ export default function Cart(props) {
         <div css={priceWrapper}>
           <h3>Total Price: {totalCart} €</h3>
         </div>
-        <button>CHECKOUT</button>
+        <StripeCheckoutButton price={totalCart} />
 
         <button onClick={backToShop}>Back To Shop</button>
         <button onClick={emptyCart}> Clear Cart</button>

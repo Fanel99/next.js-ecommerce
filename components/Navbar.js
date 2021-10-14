@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Spin as Hamburger } from 'hamburger-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -95,7 +94,7 @@ const headerStyles = css`
 `;
 const badge = css`
   margin-top: 3px;
-  padding: 3px;
+  padding: 2px;
   color: white;
   border-radius: 50%;
   position: absolute;
@@ -103,12 +102,18 @@ const badge = css`
   margin-left: 35px;
 `;
 
+const hamburgerMenu = css`
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`;
+
 function Navbar(props) {
   const [showMenu, setShowMenu] = useState(false);
 
-  const toggleAccordion = () => {
-    setShowMenu(!showMenu);
-  };
+  // const toggleAccordion = () => {
+  //   setShowMenu(!showMenu);
+  // };
   const { cartItemsBadge } = props;
 
   const hide = () => {
@@ -162,10 +167,10 @@ function Navbar(props) {
             <Image src={userlogin} width="30" height="30" />
           </a>
         </Link>
-        <FontAwesomeIcon
-          className="hamburger-menu"
-          icon={faBars}
-          onClick={toggleAccordion}
+        <Hamburger
+          css={hamburgerMenu}
+          toggled={showMenu}
+          toggle={setShowMenu}
         />
       </div>
     </header>
