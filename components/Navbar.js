@@ -85,8 +85,8 @@ const headerStyles = css`
     align-items: center;
     a {
       margin-right: 15px;
+      transition: transform 650ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
-    transition: all 3s;
   }
   .hamburger-menu {
     font-size: 20px;
