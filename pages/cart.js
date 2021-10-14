@@ -130,18 +130,6 @@ export default function Cart(props) {
 
         <button onClick={backToShop}>Back To Shop</button>
         <button onClick={emptyCart}> Clear Cart</button>
-        {cartItems.length > 0 && (
-          <>
-            <hr />
-            <Elements
-              stripe={loadStripe(
-                'pk_test_51JkMemIHfsqDJpNUWwYM1LADmxWzUlNkHQf7Jpzgq0xD01acDK20mhYKH6b6EFOgG0UFhfbt24XwlYk9L5r5Jo4l00LeWekNZJ',
-              )}
-            >
-              <CheckoutForm />
-            </Elements>
-          </>
-        )}
       </div>
     </div>
   );
