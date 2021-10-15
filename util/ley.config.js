@@ -1,4 +1,4 @@
-import setPostgresDefaultsOnHeroku from './ node-heroku-postgres-env-vars';
+import setPostgresDefaultsOnHeroku from './database';
 
 setPostgresDefaultsOnHeroku();
 

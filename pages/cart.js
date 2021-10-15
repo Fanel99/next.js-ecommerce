@@ -29,7 +29,7 @@ const cartContainer = css`
   }
 
   button {
-    padding: 6px;
+    padding: 8px;
     margin: 50px 20px 50px 20px;
     border-radius: 8px;
     background-color: #0d0806;
@@ -88,16 +88,16 @@ export default function Cart(props) {
   const totalCart = calcTotal(cartItems);
   const totalItems = totalCount(cartItems);
 
-  const router = useRouter();
-  const backToShop = () => {
-    router.push('/shop');
-  };
-
   const deleteItem = (id) => {
     const currentItemInCart = [...props.cookieHolder];
     const newCurrentItemInCart = currentItemInCart.filter((p) => p.id !== id);
     setParsedCookie('cart', newCurrentItemInCart);
     setCartItems(newCurrentItemInCart);
+  };
+
+  const router = useRouter();
+  const backToShop = () => {
+    router.push('/shop');
   };
 
   return (
@@ -119,13 +119,13 @@ export default function Cart(props) {
               <div>
                 <p>Bouquets: {product.itemCount}</p>
                 <Navbar cartItemsBadge={totalItems} />
-
                 <button
                   className="deleteButton"
                   onClick={() => deleteItem(product.id)}
                 >
                   x
                 </button>
+                {console.log()}
               </div>
             </div>
           );
@@ -134,6 +134,7 @@ export default function Cart(props) {
       <div>
         <div css={priceWrapper}>
           <h3>Total Price: {totalCart} €</h3>
+          {console.log(totalCart)}
         </div>
         <StripeCheckoutButton price={totalCart} />
 

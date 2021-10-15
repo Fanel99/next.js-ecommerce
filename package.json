@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "migrate": "dotenv ley",
     "lint": "next lint",
+    "migrate": "dotenv ley",
     "heroku-postbuild": "yarn migrate up && yarn build"
   },
   "dependencies": {

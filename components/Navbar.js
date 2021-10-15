@@ -103,9 +103,7 @@ const badge = css`
 `;
 
 const hamburgerMenu = css`
-  @media (max-width: 1024px) {
-    display: none;
-  }
+  height: 52px;
 `;
 
 function Navbar(props) {
