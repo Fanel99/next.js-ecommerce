@@ -120,6 +120,7 @@ export default function Cart(props) {
                 <p>Bouquets: {product.itemCount}</p>
                 <Navbar cartItemsBadge={totalItems} />
                 <button
+                  aria-label="Delete an item from the cart"
                   className="deleteButton"
                   onClick={() => deleteItem(product.id)}
                 >

@@ -65,13 +65,13 @@ export default function Products(props) {
                 <a>
                   <h2>{product.name}</h2>
                 </a>
+                <Image
+                  src={`/pictures/${product.id}.jpeg`}
+                  alt="product"
+                  width="300"
+                  height="300"
+                />{' '}
               </Link>
-              <Image
-                src={`/pictures/${product.id}.jpeg`}
-                alt="product"
-                width="300"
-                height="300"
-              />
 
               <p>{product.price}€</p>
               <button>Read More</button>

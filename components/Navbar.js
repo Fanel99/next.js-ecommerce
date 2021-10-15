@@ -78,6 +78,12 @@ const headerStyles = css`
       }
     }
   }
+  .hamburger-react {
+    height: 52px;
+    @media (min-width: 1024px) {
+      display: none;
+    }
+  }
 
   .navbar-navigation {
     display: flex;
@@ -100,10 +106,6 @@ const badge = css`
   position: absolute;
   background-color: red;
   margin-left: 35px;
-`;
-
-const hamburgerMenu = css`
-  height: 52px;
 `;
 
 function Navbar(props) {
@@ -166,7 +168,7 @@ function Navbar(props) {
           </a>
         </Link>
         <Hamburger
-          css={hamburgerMenu}
+          className="hamburger-react"
           toggled={showMenu}
           toggle={setShowMenu}
         />

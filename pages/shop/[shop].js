@@ -89,7 +89,7 @@ export default function Product(props) {
     });
     // Declare new Cookie
     let newCookie;
-    // console.log(isItemInCart);
+
     if (isItemInCart) {
       const newCookieIndex = currentCookie.findIndex(
         (cookieObject) => cookieObject.id === props.singleProduct.id,

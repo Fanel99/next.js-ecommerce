@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 const heroStyle = css`
   background-image: url('/pictures/hero.png');
@@ -93,21 +94,25 @@ const letter = {
 };
 
 export default function Hero() {
+  const router = useRouter();
+  const goToShop = () => {
+    router.push('/shop');
+  };
   return (
     <section css={heroStyle}>
       <div css={heroContainer}>
         <motion.h1 variants={sentence} initial="hidden" animate="visible">
-          {line1.split('').map((char, index) => {
+          {line1.split('').map((char) => {
             return (
-              <motion.span key={char + ' ' + index.i} variants={letter}>
+              <motion.span key={char} variants={letter}>
                 {char}
               </motion.span>
             );
           })}
           <br />
-          {line2.split('').map((char, index) => {
+          {line2.split('').map((char) => {
             return (
-              <motion.span key={char + ' ' + index.i} variants={letter}>
+              <motion.span key={char} variants={letter}>
                 {char}
               </motion.span>
             );
@@ -120,7 +125,7 @@ export default function Hero() {
           quidem <br /> voluptatum esse est neque dolorum, autem repellendus.
         </p>
 
-        <button> Buy Now</button>
+        <button onClick={goToShop}> Buy Now</button>
       </div>
     </section>
   );
