@@ -123,36 +123,38 @@ export default function Product(props) {
   }
 
   return (
-    <div css={singlePageContainer}>
-      <div css={divAlign}>
-        <Image
-          src={`/pictures/${props.singleProduct.id}.jpeg`}
-          alt="product"
-          width="300"
-          height="300"
-        />
-        <p>{props.singleProduct.price} €</p>
-        <div css={button}>
-          <button onClick={decreaseAmount}>-</button>
-          {itemCount}
-          <button onClick={increseAmont}>+</button>
-        </div>
+    <main>
+      <div css={singlePageContainer}>
+        <div css={divAlign}>
+          <Image
+            src={`/pictures/${props.singleProduct.id}.jpeg`}
+            alt="product"
+            width="300"
+            height="300"
+          />
+          <p>{props.singleProduct.price} €</p>
+          <div css={button}>
+            <button onClick={decreaseAmount}>-</button>
+            {itemCount}
+            <button onClick={increseAmont}>+</button>
+          </div>
 
-        <button onClick={addToCart}>Add To Cart</button>
+          <button onClick={addToCart}>Add To Cart</button>
+        </div>
+        <div css={paraAside}>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore
+            aut maiores ut optio! Illum molestiae distinctio delectus vero
+            asperiores! Eius, totam praesentium? Harum blanditiis reiciendis
+            odit quidem velit nam, voluptatem, odio quas dolor asperiores fuga
+            ipsam nobis. Eaque adipisci tempora accusamus quis modi. Incidunt,
+            cumque eligendi veritatis nostrum neque assumenda quisquam
+            reiciendis nemo asperiores nulla tempora at ducimus aliquam? Culpa
+            reprehenderit nisi illo unde facilis id aut! Vitae, molestiae.{' '}
+          </p>
+        </div>
       </div>
-      <div css={paraAside}>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore aut
-          maiores ut optio! Illum molestiae distinctio delectus vero asperiores!
-          Eius, totam praesentium? Harum blanditiis reiciendis odit quidem velit
-          nam, voluptatem, odio quas dolor asperiores fuga ipsam nobis. Eaque
-          adipisci tempora accusamus quis modi. Incidunt, cumque eligendi
-          veritatis nostrum neque assumenda quisquam reiciendis nemo asperiores
-          nulla tempora at ducimus aliquam? Culpa reprehenderit nisi illo unde
-          facilis id aut! Vitae, molestiae.{' '}
-        </p>
-      </div>
-    </div>
+    </main>
   );
 }
 

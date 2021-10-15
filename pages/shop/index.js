@@ -56,29 +56,31 @@ const shopCard = css`
 `;
 export default function Products(props) {
   return (
-    <div css={shopContainer}>
-      {props.products.map((product) => {
-        return (
-          <div key={`shop-${product.id}`}>
-            <div css={shopCard}>
-              <Link href={`/shop/${product.id}`}>
-                <a>
-                  <h2>{product.name}</h2>
-                </a>
-              </Link>
-              <Image
-                src={`/pictures/${product.id}.jpeg`}
-                alt="product"
-                width="300"
-                height="300"
-              />{' '}
-              <p>{product.price}€</p>
-              <button>Read More</button>
+    <main>
+      <div css={shopContainer}>
+        {props.products.map((product) => {
+          return (
+            <div key={`shop-${product.id}`}>
+              <div css={shopCard}>
+                <Link href={`/shop/${product.id}`}>
+                  <a>
+                    <h2>{product.name}</h2>
+                  </a>
+                </Link>
+                <Image
+                  src={`/pictures/${product.id}.jpeg`}
+                  alt="product"
+                  width="300"
+                  height="300"
+                />{' '}
+                <p>{product.price}€</p>
+                <button>Read More</button>
+              </div>
             </div>
-          </div>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div>
+    </main>
   );
 }
 

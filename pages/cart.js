@@ -24,7 +24,7 @@ const cartContainer = css`
     font-size: 36px;
   }
 
-  h3 {
+  h2 {
     text-align: center;
   }
 
@@ -108,7 +108,7 @@ export default function Cart(props) {
         {cartItems.map((product) => {
           return (
             <div key={`product-li-${product.id}`}>
-              <h3>{product.name}</h3>
+              <h2>{product.name}</h2>
 
               <Image
                 src={`/pictures/${product.id}.jpeg`}
@@ -134,7 +134,7 @@ export default function Cart(props) {
       </div>
       <div>
         <div css={priceWrapper}>
-          <h3>Total Price: {totalCart} €</h3>
+          <h2>Total Price: {totalCart} €</h2>
           {console.log(totalCart)}
         </div>
         <StripeCheckoutButton price={totalCart} />

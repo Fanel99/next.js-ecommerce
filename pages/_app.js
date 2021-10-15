@@ -1,9 +1,17 @@
 import { css, Global } from '@emotion/react';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 function MyApp({ Component, pageProps }) {
   const { cartItemsBadge } = pageProps;
+
+  if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
+    const axe = require('@axe-core/react');
+    axe(React, ReactDOM, 1000);
+  }
+
   return (
     <>
       <Global
