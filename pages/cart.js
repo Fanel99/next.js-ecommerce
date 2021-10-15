@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import StripeCheckoutButton from '../components/StripeCheckoutButton';
 import { setParsedCookie } from '../util/cookies';
@@ -85,7 +85,11 @@ export default function Cart(props) {
     setCartItems([]);
   }
 
-  const totalCart = calcTotal(cartItems);
+  useEffect(() => {
+    calcTotal(cartItems);
+  }, [cartItems]);
+
+  // const totalCart = calcTotal(cartItems);
   const totalItems = totalCount(cartItems);
 
   const deleteItem = (id) => {
@@ -99,6 +103,15 @@ export default function Cart(props) {
   const backToShop = () => {
     router.push('/shop');
   };
+
+  const mediaButton = css`
+    display: flex;
+
+    @media (max-width: 406px) {
+      display: flex;
+      flex-direction: column;
+    }
+  `;
 
   return (
     <div css={cartContainer}>
@@ -134,13 +147,15 @@ export default function Cart(props) {
       </div>
       <div>
         <div css={priceWrapper}>
-          <h2>Total Price: {totalCart} €</h2>
-          {console.log(totalCart)}
+          <h2>Total Price: {calcTotal} €</h2>
+          {console.log(calcTotal)}
         </div>
-        <StripeCheckoutButton price={totalCart} />
+        <div css={mediaButton}>
+          <StripeCheckoutButton price={calcTotal} />
 
-        <button onClick={backToShop}>Back To Shop</button>
-        <button onClick={emptyCart}> Clear Cart</button>
+          <button onClick={backToShop}>Back To Shop</button>
+          <button onClick={emptyCart}> Clear Cart</button>
+        </div>
       </div>
     </div>
   );

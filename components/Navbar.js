@@ -115,6 +115,7 @@ function Navbar(props) {
   //   setShowMenu(!showMenu);
   // };
   const { cartItemsBadge } = props;
+  console.log(props);
 
   const hide = () => {
     setShowMenu(false);
@@ -123,7 +124,7 @@ function Navbar(props) {
   return (
     <header css={headerStyles}>
       <h2>
-        Grandpa <span>Boutique</span>{' '}
+        Grandpa <span>Boutique</span>
       </h2>
       <nav className={showMenu ? 'open' : 'closed'}>
         <ul>

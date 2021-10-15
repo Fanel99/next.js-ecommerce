@@ -98,13 +98,16 @@ export default function Hero() {
   const goToShop = () => {
     router.push('/shop');
   };
+
+  let count = 0;
+
   return (
     <section css={heroStyle}>
       <div css={heroContainer}>
         <motion.h1 variants={sentence} initial="hidden" animate="visible">
           {line1.split('').map((char) => {
             return (
-              <motion.span key={char} variants={letter}>
+              <motion.span key={char + 'animation' + count++} variants={letter}>
                 {char}
               </motion.span>
             );
@@ -112,7 +115,7 @@ export default function Hero() {
           <br />
           {line2.split('').map((char) => {
             return (
-              <motion.span key={char} variants={letter}>
+              <motion.span key={char + 'animation' + count++} variants={letter}>
                 {char}
               </motion.span>
             );
