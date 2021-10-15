@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { getProducts } from '../../util/database';
 
 const shopContainer = css`
@@ -56,10 +55,6 @@ const shopCard = css`
   }
 `;
 export default function Products(props) {
-  const router = useRouter();
-  const goToShop = () => {
-    router.push('/shop');
-  };
   return (
     <main>
       <div css={shopContainer}>
@@ -79,7 +74,7 @@ export default function Products(props) {
                   </a>
                 </Link>
                 <p>{product.price}€</p>
-                <button onClick={goToShop}> See More</button>
+                <button> See More</button>
               </div>
             </div>
           );
