@@ -1,6 +1,9 @@
 import camelcaseKeys from 'camelcase-keys';
 import dotenvSafe from 'dotenv-safe';
 import postgres from 'postgres';
+import setPostgresDefaultsOnHeroku from './node-heroku-postgres-env-vars';
+
+setPostgresDefaultsOnHeroku();
 
 // import product5 from '../public/pictures/1.jpeg';
 // import product1 from '../public/pictures/2.jpeg';
@@ -13,21 +16,6 @@ import postgres from 'postgres';
 // in the .env file, making it possible
 // to connect to PostgreSQL
 dotenvSafe.config();
-
-module.exports = function setPostgresDefaultsOnHeroku() {
-  if (process.env.DATABASE_URL) {
-    const { parse } = require('pg-connection-string');
-
-    // Extract the connection information from the Heroku environment variable
-    const { host, database, user, password } = parse(process.env.DATABASE_URL);
-
-    // Set standard environment variables
-    process.env.PGHOST = host;
-    process.env.PGDATABASE = database;
-    process.env.PGUSERNAME = user;
-    process.env.PGPASSWORD = password;
-  }
-};
 
 // Connect only once to the database
 // https://github.com/vercel/next.js/issues/7811#issuecomment-715259370
