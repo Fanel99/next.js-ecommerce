@@ -26,7 +26,8 @@
     "postgres": "^1.0.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-stripe-checkout": "^2.6.3"
+    "react-stripe-checkout": "^2.6.3",
+    "prop-types": "^15.5.8"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.4",
