@@ -24,7 +24,6 @@
     "next": "11.1.2",
     "pg-connection-string": "^2.5.0",
     "postgres": "^1.0.2",
-    "prop-types": "^15.5.8",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-stripe-checkout": "^2.6.3"
