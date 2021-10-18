@@ -63,6 +63,11 @@ const thirdDiv = css`
     margin-bottom: 20px;
   }
 `;
+const copyRight = css`
+  text-align: center;
+  margin-top: 50px;
+  font-size: 18px;
+`;
 
 export default function Footer() {
   return (
@@ -118,6 +123,7 @@ export default function Footer() {
           <p>Email: office@google.at</p>
         </div>
       </div>
+      <div css={copyRight}>©2021 Fanel Secara </div>
     </footer>
   );
 }
