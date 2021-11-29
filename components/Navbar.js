@@ -117,10 +117,6 @@ function Navbar(props) {
   const { cartItemsBadge } = props;
   console.log(props);
 
-  const hide = () => {
-    setShowMenu(false);
-  };
-
   return (
     <header css={headerStyles}>
       <h2>
@@ -129,22 +125,20 @@ function Navbar(props) {
       <nav className={showMenu ? 'open' : 'closed'}>
         <ul>
           <li>
-            <Link onClick={hide} href="/">
+            <Link href="/">
               <a>Home</a>
             </Link>
           </li>
           <li>
-            <Link onClick={hide} href="/shop">
+            <Link href="/shop">
               <a>Shop</a>
             </Link>
           </li>
           <li>
-            <Link onClick={hide} href="/about">
-              About Us
-            </Link>
+            <Link href="/about">About Us</Link>
           </li>
           <li>
-            <Link onClick={hide} href="/galery">
+            <Link href="/galery">
               <a>Galery</a>
             </Link>
           </li>
